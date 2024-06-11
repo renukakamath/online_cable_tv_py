@@ -1,0 +1,30 @@
+{% include 'musician_header.html' %}
+<body style="margin-bottom: 10%;">
+<h1 align="center" style="margin: 50px;">View My Application</h1>
+<table border="2px" class="center">
+    <tr>
+        <th>Slno</th>
+        <th>Job Tittle</th>
+       
+       
+        <th>Description</th>
+        <th>Status</th>
+    </tr>
+    {% for i in data['updatejobs'] %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['job_title']}}</td>
+        
+       
+        <td>{{i['description']}}</td>
+        <td>{{i['status']}}</td>
+        {% if i['status'] == "Accept" %}
+        <td><a href="musician_experiance?application_id={{i['application_id']}}"  class="btn btn-danger">Experiance</a></td>
+       
+
+        {% endif %}
+
+    </tr>
+    {% endfor %}
+</table>
+</body>

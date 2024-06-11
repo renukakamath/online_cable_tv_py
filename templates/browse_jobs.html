@@ -1,0 +1,72 @@
+{% include 'musician_header.html' %}
+<html>
+    <link href="static/css/jobcard.css" rel='stylesheet' type='text/css' />
+<body >
+    <div class="banner">
+        <div class="container">
+
+
+            {% include 'employer_header.html' %}
+<body style="margin-bottom: 10%;">
+<h1 align="center" style="margin: 50px;color: white">View Jobs</h1>
+<table border="2px" class="center" style="color: white">
+    <tr>
+        <th>Slno</th>
+        <th>Job Title</th>
+       
+        <th>Type</th>
+        <th>Genre</th>
+        <th>Rate</th>
+        <th>Duration</th>
+        <th>Location</th>
+       
+    </tr>
+    {% for i in data['updatejobs'] %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['job_title']}}</td>
+    
+        <td>{{i['type_name']}}</td>
+        <td>{{i['genre_name']}}</td>
+        <td>{{i['job_rate']}}</td>
+        <td>{{i['job_desc']}}</td>
+        <td>{{i['job_location']}}</td>
+       
+
+        <td><a class="btn btn-primary" href="ApplyApplication?&job_id={{i['job_id']}}">Apply Application</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+</body>
+          <!--   <div class="card mx-auto">
+                <div class="row">
+          
+                    <div class="header right"><i class="fas fa-ellipsis-h"></i></div>
+                </div>
+                    <div class="card-title">
+                        <p class="heading">Lead Product Design&nbsp;<i class="far fa-compass"></i></p>
+                    </div>
+                    
+                    <p class="text-muted">You will be responsible for the visual design<br>for multi device.Understand basic design,<br>User journey, Ideation and Wireframing, etc...</p>
+                    <div class="row btnrow my-4">
+                        <div class="col-4 col-md-3"><button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">Full Time</button></div>
+                        <div class="col-4 col-md-3"><button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">Min. 1 year</button></div>
+                        <div class="col-4 col-md-3"><button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">Director</button></div>
+                    </div>
+        
+                    <div class="mutual"><i class="fas fa-users"></i>&nbsp;&nbsp;<span>5 Friends work here</span></div>
+                    <div class="row btnsubmit mt-4">
+                        <div class="col-md-6 col-6">
+                            <button type="button" class="btn btn-primary btn-lg"><span>Apply Now</span></button>
+                        </div>
+                        <div class="col-md-6 col-6">
+                            <button type="button" class="btn btn-dark btn-lg"><span>Message</span></button>
+                        </div>
+                    </div>
+            </div> -->
+        </div>
+</div>
+</div>
+</body>
+</html>

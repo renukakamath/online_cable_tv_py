@@ -1,0 +1,29 @@
+{% include 'admin_header.html' %}
+<body style="margin-bottom: 50px;">
+<h1 align="center" style="margin: 20px;"> channel</h1>
+<table border="2px" class="center">
+    <tr>
+        <th>SL.NO.</th>
+        <th>channel NAME</th>
+        <th>STATUS</th>
+        <th>UPDATE</th>
+        </tr>
+    {% for i in data['viewt'] %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['channel_name']}}</td>
+        {% if i['channel_status'] == 1 %}
+        <td><a href="?action=inactive&channel_id={{i['channel_id']}}"  class="btn btn-danger">Inactive</a></td>
+        {% else %}
+        <td><a href="?action=active&channel_id={{i['channel_id']}}"  class="btn btn-primary">Active</a></td>
+
+        {% endif %}
+        <td><a href="channel_update?channel_id={{i['channel_id']}}"  class="btn btn-primary">Update</a></td>
+
+    </tr>
+    {% endfor %}
+    
+</table>
+</body>
+</html>
+</body>

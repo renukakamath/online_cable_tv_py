@@ -1,0 +1,30 @@
+{% include 'admin_header.html' %}
+<body style="margin-bottom: 10%;">
+<h1 align="center" style="margin: 50px;">REGISTERED CUSTOMER</h1>
+<table border="2px" class="center">
+    <tr>
+        <th>SL.NO.</th>
+        <th>NAME</th>
+        <th>EMAIL ID</th>
+        <th>PHONE NUMBER</th>
+        <th>AADHAR NUMBER</th>
+        <th>STATUS</th>
+    </tr>
+    {% for i in data['viewe'] %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['emp_name']}}</td>
+        <td>{{i['emp_email']}}</td>
+        <td>{{i['emp_no']}}</td>
+        <td>{{i['emp_aadhar']}}</td>
+        {% if i['emp_status'] == 1 %}
+        <td><a href="?action=inactive&emp_id={{i['emp_id']}}"  class="btn btn-danger">Inactive</a></td>
+        {% else %}
+        <td><a href="?action=active&emp_id={{i['emp_id']}}"  class="btn btn-primary">Active</a></td>
+
+        {% endif %}
+
+    </tr>
+    {% endfor %}
+</table>
+</body>

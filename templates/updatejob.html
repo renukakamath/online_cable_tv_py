@@ -1,0 +1,118 @@
+{% include 'employer_header.html' %}
+   
+
+    <!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Registration</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+        content="freelancer Sign Up Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- //Meta tag Keywords -->
+    <link href="//fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!--/Style-CSS -->
+    <link rel="stylesheet" href="static/css/style.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
+
+    <link rel="stylesheet" href="static/css/font-awesome.min.css" type="text/css" media="all">
+
+</head>
+
+<body>
+    <div id="block" class="w3lvide-content banner"  >
+        
+            <!-- /form -->
+            <div class="workinghny-form-grid">
+                <div class="main-hotair">
+                    <div class="content-wthree">
+                        <h1 class="text-uppercase">Update A Job</h1>
+                        <form action="" method="POST">
+
+                            {% if data['updatejobs'] %}
+                            <input type="text" class="text" value="{{data['updatejobs'][0]['job_title']}}" name="job_title" placeholder="Job Title" required="">
+                            <input type="text" class="text" value="{{data['updatejobs'][0]['job_desc']}}" name="job_desc" placeholder="Job description" required="">
+                            <label>Type Name</label>
+
+                            <select class="text" class="form-control" name="type">
+                                <option value="{{data['updatejobs'][0]['type_id']}}">{{data['updatejobs'][0]['type_name']}}</option>
+                                <option>--Select--</option>
+                                {% for row in data['type']%}
+                                <option value="{{row['type_id']}}">{{row['type_name']}}</option>
+                                {% endfor %}
+                            </select>
+
+                        <br>
+                        <label>genre Name</label>
+                            <select class="text" class="form-control" name="gen">
+                                 <option value="{{data['updatejobs'][0]['genre_id']}}">{{data['updatejobs'][0]['genre_name']}}</option>
+                                <option>--Select--</option>
+                                {% for row in data['tbl_genre']%}
+                                <option value="{{row['genre_id']}}">{{row['genre_name']}}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="text" class="text" value="{{data['updatejobs'][0]['job_rate']}}" name="job_rate" placeholder="Job rate" required="">
+                             <input type="text" class="text" value="{{data['updatejobs'][0]['job_duration']}}" name="job_duration" placeholder="Job Duration" required="">
+                            <input type="text" class="text"  value="{{data['updatejobs'][0]['job_location']}}" name="job_location" placeholder="Job Location" required="">
+                           
+                            <button class="btn" type="submit" name="submit">Submit</button>
+                        </form>
+
+                        {% endif %}
+                        
+                       
+                        
+                </div>
+           
+     
+        
+    </div>
+    <!-- //form section start -->
+      <!-- js -->
+  <script src="js/jquery.min.js"></script>
+  <!-- //js -->
+  <script src="js/jquery.vide.js"></script>
+  <script>
+    //    $(document).ready(function () {
+    //        $("#block").vide("video/ocean"); // Non declarative initialization
+    //
+    //        var instance = $("#block").data("vide"); // Get instance
+    //        var video = instance.getVideoObject(); // Get video object
+    //        instance.destroy(); // Destroy instance
+    //    });
+  </script>
+</body>
+
+</html>
+
+
+
+
+<style type="text/css">
+    
+
+.content-wthree select {
+    outline: none;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: rgb(17, 17, 17);
+    text-align: left;
+    padding: 14px 20px;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    transition: .3s ease;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -ms-transition: .3s ease;
+    -o-transition: .3s ease;
+}
+</style>
+    
+{% include 'footer.html' %}

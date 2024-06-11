@@ -1,0 +1,27 @@
+{% include 'admin_header.html' %}
+<body style="margin-bottom: 50px;">
+<h1 align="center" style="margin: 20px;">VIEW Package</h1>
+<table border="2px" class="center">
+    <tr>
+        <th>SL.NO.</th>
+        <th> NAME</th>
+        <th>STATUS</th>
+        <th>UPDATE</th>
+        </tr>
+    {% for i in data['viewg'] %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['genre_name']}}</td>
+        {% if i['genre_status'] == 1 %}
+        <td><a href="?action=inactive&genre_id={{i['genre_id']}}"  class="btn btn-danger">Inactive</a></td>
+        {% else %}
+        <td><a href="?action=active&genre_id={{i['genre_id']}}"  class="btn btn-primary">Active</a></td>
+        
+        
+        {% endif %}
+        <td><a href="genre_update?genre_id={{i['genre_id']}}"  class="btn btn-primary">Update</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+</body>

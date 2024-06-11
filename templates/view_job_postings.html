@@ -1,0 +1,38 @@
+{% include 'employer_header.html' %}
+<body style="margin-bottom: 10%;">
+<h1 align="center" style="margin: 50px;">View Jobs</h1>
+<table border="2px" class="center">
+    <tr>
+        <th>Slno</th>
+        <th>Job Title</th>
+       
+        <th>Type</th>
+        <th>Genre</th>
+        <th>Rate</th>
+        <th>Duration</th>
+        <th>Location</th>
+        <th>Status</th>
+    </tr>
+    {% for i in data['jobb'] %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['job_title']}}</td>
+    
+        <td>{{i['type_name']}}</td>
+        <td>{{i['genre_name']}}</td>
+        <td>{{i['job_rate']}}</td>
+        <td>{{i['job_desc']}}</td>
+        <td>{{i['job_location']}}</td>
+        <td>{{i['job_status']}}</td>
+        {% if i['job_status'] == 1 %}
+        <td><a href="?action=inactive&job_id={{i['job_id']}}"  class="btn btn-danger">Inactive</a></td>
+        {% else %}
+        <td><a href="?action=active&job_id={{i['job_id']}}"  class="btn btn-primary">Active</a></td>
+
+        {% endif %}
+        <td><a class="btn btn-primary" href="updatejob?action=update&job_id={{i['job_id']}}">Update</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+</body>
